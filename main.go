@@ -7,31 +7,32 @@ import (
 
 func life(cells []int) []int {
 	newCells := make([]int, len(cells))
-	/* Serpinski Triangle Rules:
+	/* Serpinski Triangle Rules: // 1,1,1,0 0,1,1,1
 	if adjacent to a 1 it becomes alive
 	If in between two 1s it dies */
+	// 1,1,1,0 0,0,1,1 is the turing complete one
 
 	// USER: update the 1 to a 0 or 0 to 1 for each case: newCells[i] = 1 to newCells[i] = 0
 	newCells[0] = 0
 	newCells[len(cells)-1] = 0
 	for i := 1; i < len(cells)-1; i++ {
 		switch {
-		case (cells[i] == 1 && cells[i-1] == 0 && cells[i+1] == 0):
+		case (cells[i] == 1 && cells[i-1] == 0 && cells[i+1] == 0): // 010
 			newCells[i] = 1
-		case (cells[i] == 1 && cells[i-1] == 1 && cells[i+1] == 0):
+		case (cells[i] == 1 && cells[i-1] == 1 && cells[i+1] == 0): // 110
 			newCells[i] = 1
-		case (cells[i] == 1 && cells[i-1] == 0 && cells[i+1] == 1):
+		case (cells[i] == 1 && cells[i-1] == 0 && cells[i+1] == 1): // 011
 			newCells[i] = 1
-		case (cells[i] == 1 && cells[i-1] == 1 && cells[i+1] == 1):
+		case (cells[i] == 1 && cells[i-1] == 1 && cells[i+1] == 1): // 111
 			newCells[i] = 0
 
-		case (cells[i] == 0 && cells[i-1] == 0 && cells[i+1] == 0):
+		case (cells[i] == 0 && cells[i-1] == 0 && cells[i+1] == 0): // 000
 			newCells[i] = 0
-		case (cells[i] == 0 && cells[i-1] == 1 && cells[i+1] == 0):
+		case (cells[i] == 0 && cells[i-1] == 1 && cells[i+1] == 0): // 100
 			newCells[i] = 1
-		case (cells[i] == 0 && cells[i-1] == 0 && cells[i+1] == 1):
+		case (cells[i] == 0 && cells[i-1] == 0 && cells[i+1] == 1): // 001
 			newCells[i] = 1
-		case (cells[i] == 0 && cells[i-1] == 1 && cells[i+1] == 1):
+		case (cells[i] == 0 && cells[i-1] == 1 && cells[i+1] == 1): // 101
 			newCells[i] = 1
 		}
 	}
@@ -49,7 +50,7 @@ func printCells(cells []int) {
 			fmt.Print(" ")
 		}
 	}
-	time.Sleep(100 * time.Millisecond)
+	time.Sleep(50 * time.Millisecond) //50 is good
 	fmt.Print("\n")
 }
 
