@@ -63,7 +63,7 @@ func main() {
 
 	newIteration := cells
 	// USER: update the number of lines to be printed out in this for loop.
-	// If you want to print 333 lines, change to: i < 300
+	// If you want to print 333 lines, change to: i < 333
 	for i := 0; i < 101; i++ {
 		newIteration = life(newIteration)
 		printCells(newIteration)
