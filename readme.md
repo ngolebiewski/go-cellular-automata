@@ -14,3 +14,7 @@ Run on your own.
 1. Install Go if needed, check out: https://go.dev/doc/install
 2. Clone this repo in a directory of your choice. Grab the link from the <>Code button here on Github. SSH is `git clone git@github.com:ngolebiewski/go-cellular-automata.git`
 3. In your Terminal write `$ go run .`
+4. OPTIONAL: Add CLI Arguments: `go run . -rule=30 -width=151 -lines=100`
+    - `-rule` INT 0-255, See https://mathworld.wolfram.com/ElementaryCellularAutomaton.html for rule numbers
+    - `-width` INT how many columns wide, 151 is good, go as wide as your screen
+    - `-lines` INT number of repetitions. 
